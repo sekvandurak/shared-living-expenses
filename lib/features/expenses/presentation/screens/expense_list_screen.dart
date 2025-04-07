@@ -247,6 +247,8 @@ class _ExpenseListScreenState extends ConsumerState<ExpenseListScreen> {
                                   color: colorScheme.primary,
                                   fontWeight: FontWeight.w500,
                                 ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 6),
@@ -257,28 +259,34 @@ class _ExpenseListScreenState extends ConsumerState<ExpenseListScreen> {
                                   ),
                                 ),
                               ),
-                              Text(
-                                formattedDate,
-                                style: textTheme.bodyMedium?.copyWith(
-                                  color: colorScheme.onSurfaceVariant,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                                decoration: BoxDecoration(
-                                  color: categoryColor.withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
+                              Flexible(
                                 child: Text(
-                                  expense.category,
-                                  style: textTheme.labelSmall?.copyWith(
-                                    color: categoryColor,
-                                    fontWeight: FontWeight.w500,
+                                  formattedDate,
+                                  style: textTheme.bodyMedium?.copyWith(
+                                    color: colorScheme.onSurfaceVariant,
                                   ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],
+                          ),
+                          const SizedBox(height: 4),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: categoryColor.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              expense.category,
+                              style: textTheme.labelSmall?.copyWith(
+                                color: categoryColor,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ],
                       ),

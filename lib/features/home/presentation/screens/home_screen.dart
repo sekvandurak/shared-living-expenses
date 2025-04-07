@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ortak/features/groups/presentation/screens/groups_screen.dart';
+import 'package:ortak/features/friends/presentation/screens/friends_screen.dart';
 import 'package:ortak/features/auth/presentation/screens/profile_screen.dart';
 import 'package:ortak/features/expenses/presentation/screens/add_expense_screen.dart';
 import 'package:ortak/features/groups/presentation/screens/add_group_screen.dart';
@@ -19,6 +20,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
+    const FriendsScreen(),
     const GroupsScreen(),
     const Center(child: Text('Add')), // Placeholder for FAB action
     const ProfileScreen(),
@@ -67,12 +69,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           // Logout button removed
         ],
       ),
-      body: _screens[_currentIndex == 1 ? 0 : _currentIndex], // Skip middle index
+      body: _getScreenForIndex(_currentIndex),
       floatingActionButton: null,
       bottomNavigationBar: BottomNavBar(
         currentIndex: _currentIndex,
         onTap: (index) {
-          if (index == 1) {
+          if (index == 2) {
             // Middle button - Create a New Group
             _addGroup();
           } else {
@@ -81,5 +83,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         },
       ),
     );
+  }
+  
+  Widget _getScreenForIndex(int index) {
+    // Handle "Add" button which doesn't have a screen
+    if (index == 2) {
+      return _screens[0]; // Default to Friends screen
+    }
+    return _screens[index];
   }
 } 

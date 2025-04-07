@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "338096717253",
+    "project_id": "ortak-8bd35",
+    "storage_bucket": "ortak-8bd35.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338096717253:android:6261a65c35c3a1241e1fac",
+        "android_client_info": {
+          "package_name": "com.example.ortak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7L4x9j0o39pEJX_7b4Feeb9NxUjNRK7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
